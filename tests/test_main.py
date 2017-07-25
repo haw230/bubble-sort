@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 import sys
 
-sys.path.insert(0, '/home/ubuntu/workspace/algorithm_name') #change this to correct folder name
+sys.path.insert(0, '/home/ubuntu/workspace/bubble_sort') #change this to correct folder name
 sys.path.insert(0, '/home/ubuntu/workspace/solution')
 
-from main import algorithm_name #change to proper function name
-from solution import solved_algorithm_name #change to proper function name
+from main import bubble_sort #change to proper function name
+from solution import solved_bubble_sort, swap #change to proper function name
 from time import sleep
+from random import sample
+
 class aethetics(object):
     BLUE = '\033[94m'
     GREEN = '\033[92m'
@@ -22,10 +24,14 @@ class test_cases(object):
         self.total_tests = 0
 
     def tests(self): #add tests here
-        f1,f2 = algorithm_name, solved_algorithm_name #change to proper function names
+        f1,f2 = bubble_sort, solved_bubble_sort #change to proper function names
         self.test(f1, f2, [1, 3, 2])
         self.test(f1, f2, [1, 2, 3])
         self.test(f1, f2, [3, 2, 1])
+        self.test(f1, f2, [1, 1, 1, 1])
+        self.test(f1, f2, [5, 4, 3, 2, 1, 0])
+        self.test(f1, f2, sample(range(100), 10))
+        self.test(f1, f2, sample(range(50), 15))
     
     def test(self, func1, func2, ls):
         ls1 = list(ls)
